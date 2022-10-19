@@ -20,10 +20,23 @@ WHERE name LIKE '%mon';
 UPDATE animals SET species = 'pokemon'
 WHERE species IS NULL;
 COMMIT;
-SELECT * FROM animals ORDER BY id;
+SELECT * FROM animals;
 
 BEGIN;
 DELETE FROM animals;
 SELECT * FROM animals;
 ROLLBACK;
+SELECT * FROM animals;
+
+BEGIN;
+DELETE FROM animals
+WHERE date_of_birth > DATE '2022-01-01';
+SAVEPOINT animals_2022;
+SELECT * FROM animals;
+UPDATE animals SET weight_kg = weight_kg * -1;
+SELECT * FROM animals;
+ROLLBACK TO animals_2022;
+UPDATE animals SET weight_kg = weight_kg * -1
+WHERE weight_kg < 0;
+COMMIT;
 SELECT * FROM animals;
