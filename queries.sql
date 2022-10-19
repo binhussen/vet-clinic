@@ -21,3 +21,9 @@ UPDATE animals SET species = 'pokemon'
 WHERE species IS NULL;
 COMMIT;
 SELECT * FROM animals ORDER BY id;
+
+BEGIN;
+DELETE FROM animals;
+SELECT * FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
