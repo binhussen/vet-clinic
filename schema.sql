@@ -25,3 +25,11 @@ CREATE TABLE species(
   name VARCHAR(50) NOT NULL,
   PRIMARY KEY(id)
 );
+
+ALTER TABLE animals DROP species;
+
+ALTER TABLE animals
+ADD species_id INTEGER REFERENCES species(id) ON DELETE CASCADE;
+
+ALTER TABLE animals
+ADD owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE;
