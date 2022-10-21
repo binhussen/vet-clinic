@@ -41,3 +41,14 @@ CREATE TABLE vets(
   date_of_graduation DATE NOT NULL,
   PRIMARY KEY(id)
 );
+
+CREATE TABLE specializations(
+  species_id INTEGER REFERENCES species(id) ON DELETE CASCADE,
+  vet_id INTEGER REFERENCES vets(id) ON DELETE CASCADE
+);
+
+CREATE TABLE visits(
+  animal_id INTEGER REFERENCES animals(id) ON DELETE CASCADE,
+  vet_id INTEGER REFERENCES vets(id) ON DELETE CASCADE,
+  date_of_visit DATE NOT NULL
+);
