@@ -33,3 +33,22 @@ ADD species_id INTEGER REFERENCES species(id) ON DELETE CASCADE;
 
 ALTER TABLE animals
 ADD owner_id INTEGER REFERENCES owners(id) ON DELETE CASCADE;
+
+CREATE TABLE vets(
+  id INTEGER GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(50) NOT NULL,
+  age INTEGER NOT NULL,
+  date_of_graduation DATE NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE specializations(
+  species_id INTEGER REFERENCES species(id) ON DELETE CASCADE,
+  vet_id INTEGER REFERENCES vets(id) ON DELETE CASCADE
+);
+
+CREATE TABLE visits(
+  animal_id INTEGER REFERENCES animals(id) ON DELETE CASCADE,
+  vet_id INTEGER REFERENCES vets(id) ON DELETE CASCADE,
+  date_of_visit DATE NOT NULL
+);
