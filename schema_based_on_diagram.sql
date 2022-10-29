@@ -40,3 +40,9 @@ CREATE TABLE treatments (
     type VARCHAR(50) NOT NULL,
     name VARCHAR(50) NOT NULL,
 );
+
+-- Many-to-many relationship
+CREATE TABLE medial_treatments (
+     medical_history_id INTEGER REFERENCES medical_histories(id),
+     treatment_id INTEGER REFERENCES treatments(id)
+);
