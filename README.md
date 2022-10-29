@@ -8,8 +8,7 @@
 > animals, animals' owners, clinic employees and visits.
 
 ## database diagram for a clinic:
-
-     -   <img src="./images/clinic_diagram.png" alt="Clinic diagram" width="1000px" />
+<img src="./images/clinic_diagram.png" alt="Clinic diagram" width="1000px" />
 
 ## Getting Started
 
