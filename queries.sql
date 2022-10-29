@@ -97,3 +97,8 @@ SELECT COUNT(vi.animal_id) FROM animals a JOIN visits vi ON vi.animal_id = a.id 
 SELECT v.name AS "Vet Name", s.name AS "Animal", COUNT(s.name) AS "Specialization Number" FROM vets v
   JOIN visits vi ON vi.vet_id = v.id JOIN animals a ON a.id = vi.animal_id JOIN species s ON s.id = a.species_id
   WHERE v.name = 'Maisy Smith' GROUP BY s.name, v.name ORDER BY "Specialization Number" DESC LIMIT 1;
+
+--select owners and visits with explanations
+explain analyze SELECT COUNT(*) FROM visits where animal_id = 4;
+explain analyze SELECT * FROM visits where vet_id = 2;
+explain analyze SELECT * FROM owners where email = 'owner_18327@mail.com';
